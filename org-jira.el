@@ -1082,7 +1082,7 @@ ORG-JIRA-PROJ-KEY-OVERRIDE being set before and after running."
       (re-search-forward top-heading nil 1 1))
     (beginning-of-line)
     (unless (looking-at top-heading)
-      (insert (format "\n* %s-Tickets\n" proj-key)))))
+      (insert (format "* %s-Tickets\n" proj-key)))))
 
 (defun org-jira--render-issue (Issue)
   "Render single ISSUE."
@@ -1193,7 +1193,6 @@ ISSUES is a list of `org-jira-sdk-issue' records."
   ;; Prior text: "Oh, are you the culprit?" - Not sure if this caused an issue at some point.
   ;; We want to ensure we fix broken org narrowing though, by doing org-show-all and then org-cycle.
   (switch-to-buffer (org-jira--get-project-buffer (-last-item Issues)))
-  (org-show-all)
   (org-cycle))
 
 ;;;###autoload
